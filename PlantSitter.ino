@@ -1,5 +1,11 @@
-#include <bitset>
+//arduino library includes
 #include <Arduino.h>
+//C++ includes
+#include <bitset>
+//costom includes
+#include "TM1638/TM1638.h"
+
+
 
 typedef std::bitset<8> BYTE;
 
@@ -10,14 +16,10 @@ int lKStrobe = 2;
 BYTE instruction = 0b10001111; //
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(lKDataIO, OUTPUT);
-  pinMode(lKClock, OUTPUT);
-  pinMode(lKStrobe, OUTPUT);
+    TM1638 ledKey(0,1,2);
 
-  digitalWrite(lKDataIO, HIGH);
-  digitalWrite(lKClock, HIGH);
-  digitalWrite(lKStrobe, HIGH);
+    // put your setup code here, to run once:
+    
 
 
 }
