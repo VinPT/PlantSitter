@@ -4,6 +4,10 @@ TM1638::TM1638(int data, int clock, int strobe){
     lKDataIO = data;
     lKClock = clock;
     lKStrobe = strobe;
+    
+    instruction = 0b10001111;
+    
+    initArduino();
 }
 
 int TM1638::initArduino(){
@@ -16,7 +20,20 @@ int TM1638::initArduino(){
     digitalWrite(lKClock, HIGH);
     digitalWrite(lKStrobe, HIGH);
 
-    return 0
+    Serial.write("Starting Instruction write:");
+    
+    digitalWrite(lKStrobe, LOW);
+    
+    for(int i = 0; 8 > i; i++){
+        Serial.write(lKDataIO);
+        digitalWrite(lKClock, LOW);
+        digitalWrite(lKDataIO, instruction[i]);
+        digitalWrite(lKClock, HIGH);
+    }
+    
+    digitalWrite(lKStrobe, HIGH);
+
+    return 0;
 }
 
 //destructor empty as there is nothing to destroy
