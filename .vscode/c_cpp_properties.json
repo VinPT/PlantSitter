@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/teensy",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/teensy3",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/teensy4",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_disk",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_flightsim",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_hid",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_midi",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_rawhid",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_serial",
+                "D:/Program/Arduino/hardware/teensy/avr/cores/usb_serial_hid",
+                "D:/Program/Arduino/hardware/arduino/avr/cores/arduino",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/EEPROM/src",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/HID/src",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/SPI/src",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/Wire/src",
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/SPI/src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "F_CPU=16000000L",
+                "ARDUINO=10805",
+                "ARDUINO_AVR_UNO",
+                "ARDUINO_ARCH_AVR"
+            ],
+            "windowsSdkVersion": "10.0.17134.0",
+            "compilerPath": "D:/Program Files/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.14.26428/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
