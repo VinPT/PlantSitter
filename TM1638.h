@@ -14,6 +14,7 @@ class TM1638{
         void sSegTurnOff();
         void sendInstruction(BYTE instruction);
         void sendData(BYTE instruction);
+        BYTE getButtonData();
         BYTE sSNumber(unsigned int number);
         ~TM1638();
     
@@ -28,6 +29,7 @@ class TM1638{
         BYTE sSOn = 0b10001111; //
         BYTE sSOff = 0b10000111;
         BYTE setWriteMode = 0b01000000;
+        BYTE setGetButtonData = 0b01000010;
 
 
         //Data Presets and stores

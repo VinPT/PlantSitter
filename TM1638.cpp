@@ -97,6 +97,39 @@ void TM1638::sendData(BYTE instruction){
 
 }
 
+BYTE TM1638::getButtonData(){
+    BYTE buttonData;
+    //setup
+    sendInstruction(setGetButtonData);
+    pinMode(lKDataIO, INPUT);
+
+    //Read 
+    for(int i = 0; 4 > i; i++){ 
+        bool garbage = 0 ;
+        for(int j = 0; 8 > j; j++){
+            digitalWrite(lKClock, LOW);
+            digitalWrite(lKClock, HIGH);
+            if (0==j%4){
+                buttonData[(i + ((j==4)?4:0))] = digitalRead(lKDataIO);
+            }
+        }
+    }
+    //debug output for testing buttons
+    /*Serial.println("Button Data:");
+    for(int i = 0; 8 > i; i++){
+
+        Serial.print(i);
+        Serial.print("    ");
+        Serial.println(buttonData[i]? "true" : "false");   
+    }*/
+    
+    //cleanup
+    pinMode(lKDataIO, OUTPUT);
+
+    
+    return buttonData;
+}
+
 BYTE TM1638::sSNumber(unsigned int number){
     //check value less than 10
 
