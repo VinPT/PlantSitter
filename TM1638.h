@@ -7,18 +7,38 @@ typedef std::bitset<8> BYTE;
 class TM1638{
     public:
         TM1638(int data, int clock, int strobe);
+        void update();
+        void setdigit(int data, int digit);
+        void sSegTurnOn();
+        void sSegTurnOn(int brightness);//brightness not implemented yet        
+        void sSegTurnOff();
         void sendInstruction(BYTE instruction);
         void sendData(BYTE instruction);
         BYTE sSNumber(unsigned int number);
         ~TM1638();
     
     private:
+        //Pin settings
         int lKDataIO;
         int lKClock;
         int lKStrobe;
-        BYTE ins;
+        bool sSegOn;
+
+        //Commands
+        BYTE sSOn = 0b10001111; //
+        BYTE sSOff = 0b10000111;
+        BYTE setWriteMode = 0b01000000;
+
+
+        //Data Presets and stores
+        BYTE fullData;
+        BYTE emptyData;
+        BYTE digit[8];
+        BYTE led;
+
 
         int initArduino();
+
 
 };
 

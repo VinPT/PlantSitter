@@ -5,8 +5,24 @@ TM1638::TM1638(int data, int clock, int strobe){
     lKClock = clock;
     lKStrobe = strobe;
     
-    ins = 0b10001111;
+    //set instructions
+    sSOn = 0b10001111; //
+    sSOff = 0b10000111;
+    setWriteMode = 0b01000000;
+
+    //set data presets
+    fullData = 0b11111111;
+    emptyData = 0b00000000;
     
+    for(int i = 0; 8>i; i++){
+        digit[i] = emptyData;
+        
+        if(i%2 == 1)
+            led[i] = 1;
+        else
+            led[i] = 0;
+    }
+
     initArduino();
 }
 
@@ -24,6 +40,44 @@ int TM1638::initArduino(){
 
     return 0;
 }
+
+//update seven seg and led data <-- might split too two update functions
+void TM1638::update(){
+    sSegTurnOn();
+    sendInstruction(setWriteMode);
+    //16 needed as one byte is led next is seven seg for total of eight each
+    for(int i = 0;16>i;i++){
+        int select = (int)i/2;
+
+        if(i%2 == 1){  //led update on odd
+            sendData(led[select]? emptyData : fullData);
+
+        }
+        else{  //seven seg update on even
+            sendData(digit[select]);
+            
+        }
+        
+    }
+}
+
+void TM1638::setdigit(int data, int djit){//miss spelled digit to avoid same variable name
+    digit[djit] = sSNumber(data); // need to add checks and return success or fail 
+}
+
+void TM1638::sSegTurnOn(){
+    if (!sSegOn){
+        sendInstruction(sSOn);
+        sSegOn = true;
+    }   
+}        
+void TM1638::sSegTurnOff(){
+    if (sSegOn){
+        sendInstruction(sSOff);
+        sSegOn = false;
+    }
+}
+
 
 void TM1638::sendInstruction(BYTE instruction){
    
