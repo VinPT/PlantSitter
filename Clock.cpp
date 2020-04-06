@@ -29,7 +29,7 @@ Clock::Time Clock::getTime(){
 }
 
 void Clock::update(){
-    int check = millis();
+    unsigned int check = millis();
     unsigned long millisChange = check > lastCheckMiliseconds? check - lastCheckMiliseconds : (~lastCheckMiliseconds)   + check;
 
     time.miliSeconds += millisChange;
