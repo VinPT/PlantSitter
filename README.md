@@ -16,3 +16,7 @@ Goal: Reduce difficulty in starting plants from seed.
 Reason: Reducing dificulty of starting ones own seeds allows home gardeners to more cost effectivly 
 aquire plants for use in garden. Thus increasing quality of garden through sesonal flowers or 
 cost effective small scale production of produce.
+
+
+Required(non standard) Libraries 
+i2c_t3.h
