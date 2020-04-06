@@ -20,7 +20,9 @@
                 "D:/Program/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src",
                 "D:/Program/Arduino/hardware/arduino/avr/libraries/SPI/src",
                 "D:/Program/Arduino/hardware/arduino/avr/libraries/Wire/src",
-                "D:/Program/Arduino/hardware/arduino/avr/libraries/SPI/src"
+                "D:/Program/Arduino/hardware/arduino/avr/libraries/SPI/src",
+                "D:/Program/Arduino/libraries",
+                "D:/Program/Arduino/libraries/i2c_t3"
             ],
             "defines": [
                 "_DEBUG",
