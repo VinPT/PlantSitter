@@ -1,0 +1,47 @@
+0               Serial1 SPI :   LedKey-DATA
+1               Serial1 SPI :   LedKey-CLOCK
+2           PWM             :   LedKey-STROBE
+3           PWM  I2C2 CAN   :   <2> i2c0 << for us
+4           PWM  I2C2 CAN   :   <2>
+5           PWM             :
+6           PWM             :
+7           PWM Serial3     :
+8           PWM Serial3     :
+9           PWM Serial2 SPI :
+10          PWM Serial2 SPI :
+11                      SPI :
+12                      SPI :
+13                      SPI :
+14  ANALOG  PWM             : moist
+15  ANALOG              SPI :
+16  ANALOG  PWM             : moist
+17  ANALOG  PWM             : moist
+18  ANALOG       I2C0       :   <0>
+19  ANALOG       I2C0       :   <0>
+20  ANALOG  PWM         SPI :
+21  ANALOG  PWM         SPI :
+22  ANALOG  PWM             : moist
+23  ANALOG  PWM             : moist
+24                          :   Relay-SET4
+25                          :   Relay-SET3
+26                          :   Relay-SET2
+27                          :   Relay-SET1
+28                          :
+29          PWM             :
+30          PWM             :
+31  ANALOG      Serial4 SPI :
+32  ANALOG      Serial4 SPI :
+33  ANALOG      Serial5 CAN :
+34  ANALOG      Serial5 CAN :
+35  ANALOG  PWM             :
+36  ANALOG  PWM             :
+37  ANALOG  PWM  I2C1       :   <1>
+38  ANALOG  PWM  I2C1       :   <1>
+39  ANALOG                  :
+    ANALOG
+    ANALOG
+
+
+
+
+PWM == ANALOG WRITE
