@@ -17,9 +17,9 @@ TM1638::TM1638(int data, int clock, int strobe){
     for(int i = 0; 8>i; i++){
         digit[i] = emptyData;
         
-        if(i%2 == 1)
-            led[i] = 1;
-        else
+       // if(i%2 == 1)
+       //     led[i] = 1;
+       // else
             led[i] = 0;
     }
 
