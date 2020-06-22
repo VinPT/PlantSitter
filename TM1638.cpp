@@ -105,7 +105,6 @@ BYTE TM1638::getButtonData(){
 
     //Read 
     for(int i = 0; 4 > i; i++){ 
-        bool garbage = 0 ;
         for(int j = 0; 8 > j; j++){
             digitalWrite(lKClock, LOW);
             digitalWrite(lKClock, HIGH);
@@ -114,14 +113,6 @@ BYTE TM1638::getButtonData(){
             }
         }
     }
-    //debug output for testing buttons
-    /*Serial.println("Button Data:");
-    for(int i = 0; 8 > i; i++){
-
-        Serial.print(i);
-        Serial.print("    ");
-        Serial.println(buttonData[i]? "true" : "false");   
-    }*/
     
     //cleanup
     pinMode(lKDataIO, OUTPUT);
