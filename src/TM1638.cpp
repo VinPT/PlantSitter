@@ -16,15 +16,7 @@ TM1638::TM1638(int data, int clock, int strobe)
     fullData = 0b11111111;
     emptyData = 0b00000000;
 
-    for (int i = 0; 8 > i; i++)
-    {
-        digit[i] = emptyData;
-
-        //if (i % 2 == 1)
-        //    led[i] = 1;
-        //else
-        led[i] = 0;
-    }
+    led = fullData;
 
     initArduino();
 }
@@ -69,6 +61,11 @@ void TM1638::update()
 void TM1638::setdigit(int data, int djit)
 {                                 //miss spelled digit to avoid same variable name
     digit[djit] = sSNumber(data); // need to add checks and return success or fail
+}
+
+void TM1638::setled(bool on, int number)
+{
+    led[number] = on;
 }
 
 void TM1638::sSegTurnOn()
