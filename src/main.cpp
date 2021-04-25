@@ -33,7 +33,6 @@ void print_scan_status(uint8_t target, uint8_t all);
 int pdxSunrise, pdxSunset;
 Dusk2Dawn pdx(34.0522, -118.2437, -8);
 uint8_t found, target, all;
-
 void setup()
 {
 
@@ -69,13 +68,20 @@ void loop()
     //Serial.print("Sunset: ");
     //Serial.println(pdxSunset);
 
+    //
     ledKey.update();
     worldtime.update();
 
-    //BYTE keys = ledKey.getButtonData();
-    BYTE keys = 0b00000000;
+    BYTE keys = ledKey.getButtonData();
+    BYTE number = x / 4;
+    number.flip();
+
     for (int i = 0; i < 8; i++)
     {
+        //set leds
+        ledKey.setled(number[i], i);
+
+        //set time via keys
         int change = (i % 2) ? 1 : -1;
 
         if (keys[i] && i < 2)
@@ -88,14 +94,11 @@ void loop()
 
     Clock::Time currentTime = worldtime.getTime();
     //Serial.println(currentTime.hours + currentTime.minutes + currentTime.seconds + currentTime.miliSeconds);
-    ledKey.setdigit((int)currentTime.days / 10, 0);
-    ledKey.setdigit((int)currentTime.days % 10, 1);
-    ledKey.setdigit((int)currentTime.hours / 10, 2);
-    ledKey.setdigit((int)currentTime.hours % 10, 3);
-    ledKey.setdigit((int)currentTime.minutes / 10, 4);
-    ledKey.setdigit((int)currentTime.minutes % 10, 5);
-    ledKey.setdigit((int)currentTime.seconds / 10, 6);
-    ledKey.setdigit((int)currentTime.seconds % 10, 7);
+
+    ledKey.setdigit((int)currentTime.hours / 10, 4);
+    ledKey.setdigit((int)currentTime.hours % 10, 5);
+    ledKey.setdigit((int)currentTime.minutes / 10, 6);
+    ledKey.setdigit((int)currentTime.minutes % 10, 7);
 
     //ledKey.setdigit(0, 6);
     //ledKey.setdigit(0, 7);
@@ -154,7 +157,8 @@ void loop()
     Serial.print("plant4: ");
     Serial.println(plant4.state());
 */
-    delay(1000);
+    delay(100);
+    x++;
 }
 
 void print_scan_status(uint8_t target, uint8_t all)
